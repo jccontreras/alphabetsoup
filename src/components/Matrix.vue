@@ -1,5 +1,9 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
+    <span @click="buildSoup" style="margin-left: 40rem;">
+      Stir Alphabet Soup
+      <img src="@/assets/reloadicon.png" style="max-height: 30px; max-width: 30px">
+    </span>
     <div class="row" v-for="(wordh) in arraywords" v-bind:key="wordh"
          style="background-color: aquamarine">
       <div class="col-sm" v-for="(wordv) in wordh" v-bind:key="wordv">
@@ -46,13 +50,11 @@ export default {
       }
     },
     insertWordsList(word) {
-      alert(word);
       const wordarray = word.split('');
       let index = 0;
       const direction = constant.DIRECTION.charAt(Math.floor(
         Math.random() * constant.DIRECTION.length,
       ));
-      alert(direction);
       if (direction === 'V') {
         let y = Math.floor(Math.random() * 20);
         if (y <= 10) {
