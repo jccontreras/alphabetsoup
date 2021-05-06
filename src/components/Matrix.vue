@@ -28,10 +28,10 @@ export default {
     buildSoup() {
       this.arraywords = [];
       let index = 0;
-      while (index < 15) {
+      while (index < 20) {
         let index2 = 0;
         this.arraywords[index] = [];
-        while (index2 < 15) {
+        while (index2 < 20) {
           // eslint-disable-next-line max-len
           const result = constant.ALPHABET.charAt(Math.floor(Math.random() * constant.ALPHABET.length));
           this.arraywords[index][index2] = result;
@@ -40,17 +40,53 @@ export default {
         index += 1;
       }
       const array = constant.WORDS.split('/');
-      this.insertWordsList(array[1]);
+      // eslint-disable-next-line guard-for-in,no-restricted-syntax
+      for (const word in array) {
+        this.insertWordsList(array[word]);
+      }
     },
     insertWordsList(word) {
+      alert(word);
       const wordarray = word.split('');
       let index = 0;
-      // eslint-disable-next-line prefer-destructuring
-      // alert(wordarray[0]);
-      this.list[4][4] = 'Ñ';
-      while (index < wordarray.length) {
-        // alert(wordarray[index]);
-        index += 1;
+      const direction = constant.DIRECTION.charAt(Math.floor(
+        Math.random() * constant.DIRECTION.length,
+      ));
+      alert(direction);
+      if (direction === 'V') {
+        let y = Math.floor(Math.random() * 20);
+        if (y <= 10) {
+          const x = Math.floor(Math.random() * 20);
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            y += 1;
+            index += 1;
+          }
+        } else {
+          const x = Math.floor(Math.random() * 20);
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            y -= 1;
+            index += 1;
+          }
+        }
+      } else if (direction === 'H') {
+        let x = Math.floor(Math.random() * 20);
+        if (x <= 10) {
+          const y = Math.floor(Math.random() * 20);
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            x += 1;
+            index += 1;
+          }
+        } else {
+          const y = Math.floor(Math.random() * 20);
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            x -= 1;
+            index += 1;
+          }
+        }
       }
     },
   },
