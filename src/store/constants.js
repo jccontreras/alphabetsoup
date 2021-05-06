@@ -5,4 +5,4 @@ export const WORDS = 'GUITARRA/BATERIA/TRIANGULO/BAJO/TRIPLE/TAMBORES/REDOBLE/SA
 export const ALPHABET = 'ABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
 
 // Direction to random
-export const DIRECTION = 'HV';
+export const DIRECTION = 'HVD';

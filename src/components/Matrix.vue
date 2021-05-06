@@ -89,6 +89,38 @@ export default {
             index += 1;
           }
         }
+      } else if (direction === 'D') {
+        let x = Math.floor(Math.random() * 20);
+        let y = Math.floor(Math.random() * 20);
+        if (x <= 10 && y <= 10) {
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            x += 1;
+            y += 1;
+            index += 1;
+          }
+        } else if (x <= 10 && y > 10) {
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            x += 1;
+            y -= 1;
+            index += 1;
+          }
+        } else if (x > 10 && y <= 10) {
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            x -= 1;
+            y += 1;
+            index += 1;
+          }
+        } else if (x > 10 && y > 10) {
+          while (index < wordarray.length) {
+            this.arraywords[y][x] = wordarray[index];
+            x -= 1;
+            y -= 1;
+            index += 1;
+          }
+        }
       }
     },
   },

@@ -1,9 +1,11 @@
 <template>
-  <ul id="example-1">
-    <li v-for="(word) in arraywords" v-bind:key="word">
-      {{ word }}
-    </li>
-  </ul>
+  <div class="container-fluid">
+    <ul class="list-group">
+      <li v-for="(word) in arraywords" v-bind:key="word">
+        {{ word }}
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
